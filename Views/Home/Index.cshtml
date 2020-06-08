@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model Quote
+
+
+<div class="row" id="header-row">
+    <div class="col-12 text-center">
+        <h1>Welcome to Quoting Dojo</h1>
+    </div>
+</div>
+
+<div class="row" id="add-quote-form">
+    <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <form asp-action="CreateQuote" asp-controller="Home" method="post">
+            <div class="form-group">
+                <label asp-for="username"></label>&nbsp&nbsp<span id="error1" asp-validation-for="username"></span>
+                <input type="text" asp-for="username" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="quote"></label>&nbsp&nbsp<span id="error2" asp-validation-for="quote"></span>
+                <textarea class="form-control" asp-for="quote" id="quote"></textarea>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-6 text-left">
+                    <button class="btn btn-primary">Add my quote!</button>
+                </div>
+                <div class="form-group col-lg-6 text-right">
+                    <a href="/quotes" class="btn btn-info">Skip to quotes!</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

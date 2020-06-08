@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row" id="header-row2">
+    <div class="col-12 text-center">
+        <h2>Here are the awesome quotes!</h2>
+    </div>
+</div>
+
+<div class="row" id="quote-row">
+
+   <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        @foreach (var Q in ViewBag.Quotes)
+        {
+            // Format the created at time and date
+            DateTime CreatedAt = Convert.ToDateTime(Q["created_at"]);
+            string Date = CreatedAt.ToString("MMMM dd, yyyy");
+            string Time = CreatedAt.ToString("h:mm tt");
+
+            <p>"@Q["quote"]"</p>
+            <p class="text-center">- @Q["username"] at @Time on @Date  </p>
+        }
+   </div>
+
+
+
+</div>
